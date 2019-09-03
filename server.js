@@ -42,7 +42,6 @@ app.post('/shopping-list', jsonParser, (req, res) => {
       return res.status(400).send(message);
     }
   }
-
   const item = ShoppingList.create(req.body.name, req.body.budget);
   res.status(201).json(item);
 });
@@ -77,7 +76,7 @@ app.put('/shopping-list/:id', jsonParser, (req, res) => {
   res.status(204).end();
 });
 
-app.put('recipes/:id', jsonParser, (req,res) => {
+app.put('/recipes/:id', jsonParser, (req,res) => {
   const reqFields = ['name', 'id', ['ingredients']]; 
   for (let i = 0; i < reqFields.length; i++) {
     const fie = reqFields[i]; 
