@@ -97,6 +97,7 @@ app.put('recipes/:id', jsonParser, (req,res) => {
     name: req.body.name,
     ingredients: req.body.ingredients
   });
+  res.status(204).end();
 })
 // when DELETE request comes in with an id in path,
 // try to delete that item from ShoppingList.
