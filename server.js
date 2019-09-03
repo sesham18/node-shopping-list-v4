@@ -78,7 +78,7 @@ app.put('/shopping-list/:id', jsonParser, (req, res) => {
 });
 
 app.put('recipes/:id', jsonParser, (req,res) => {
-  const reqFields = ['name', 'id', 'ingredients']; 
+  const reqFields = ['name', 'id', ['ingredients']]; 
   for (let i = 0; i < reqFields.length; i++) {
     const fie = reqFields[i]; 
     if(!(fie in req.body)) {
@@ -95,7 +95,7 @@ app.put('recipes/:id', jsonParser, (req,res) => {
   Recipes.update({
     id: req.params.id, 
     name: req.body.name,
-    ingredients: req.body.ingredients
+    ingredients: [req.body.ingredients]
   });
   res.status(204).end();
 })
